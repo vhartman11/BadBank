@@ -15,11 +15,21 @@ function CreateAccount(){
       return true;
   }
 
+  function valiPass(password) {
+    if (password.length < 8) {
+      setStatus('Error: password to short');
+      setTimeout(() => setStatus(''),3000);
+      return false;
+    }
+    return true;
+  }
+
   function handleCreate(){
     console.log(name,email,password);
     if (!validate(name,     'name'))     return;
     if (!validate(email,    'email'))    return;
     if (!validate(password, 'password')) return;
+    if (!valiPass(password,  'password')) return;
     ctx.users.push({name,email,password,balance:100});
     setShow(false);
   }    

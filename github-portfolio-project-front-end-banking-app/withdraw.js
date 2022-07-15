@@ -2,7 +2,10 @@ function Withdraw(){
   const [show, setShow]             = React.useState(true);
   const [status, setStatus]         = React.useState('');
   const [withdraw, setWithdraw] = React.useState('');
-  //const ctx = React.useContext(UserContext);  
+  const ctx = React.useContext(UserContext);  
+
+  console.log(ctx)
+let user = ctx.users[ctx.users.length - 1]
 
   function validate(field, label){
       if (!field) {
@@ -32,7 +35,7 @@ function Withdraw(){
       status={status}
       body={show ? (  
               <>
-              Current Balance<br/>
+              Current Balance {user.balance}<br/>
               
               Amount to withdraw<br/>
               <input type="number" className="form-control" id="withdraw" placeholder="Enter amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)}/><br/>
