@@ -6,10 +6,6 @@ function Withdraw(){
   const [withdraw, setWithdraw] = React.useState('');
   const ctx = React.useContext(UserContext);  
 
-console.log(ctx)
-let user = ctx.users[ctx.users.length - 1]
-let balance = user.balance
-
   function validate(field, label){
       if (!field) {
         setStatus('Error: ' + label);
@@ -30,7 +26,7 @@ let balance = user.balance
      setTimeout(() => setStatus(''),3000);
      return false;
     }
-    if (withdraw > balance) {
+    if (withdraw > ctx.users[0].balance) {
       setStatus('Error: not enough in account');
       setTimeout(() => setStatus(''),3000);
       return false;
@@ -38,11 +34,10 @@ let balance = user.balance
     return true;
  }
 
-  function handleCreate(){
-    console.log(withdraw);
+  function handleWithdraw(){
     if (!validate(withdraw, 'withdraw')) return;
-    if (!valiWithdraw(withdraw, 'withdraw')) return;
-    //ctx.users.push({name,email,password,balance:100});
+    if (!valiWithdraw(withdraw)) return;
+    ctx.users[0].balance = ctx.users[0].balance - parseInt(withdraw)
     setShow(false);
   }    
 
@@ -58,12 +53,12 @@ let balance = user.balance
       status={status}
       body={show ? (  
               <>
-              Current Balance {user.balance}<br/>
+              Current Balance {ctx.users[0].balance}<br/>
               
               Amount to withdraw<br/>
               <input type="text" className="form-control" id="withdraw" placeholder="Enter amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)}/><br/>
               
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>Request withdraw</button>
+              <button type="submit" className="btn btn-light" onClick={handleWithdraw}>Request withdraw</button>
               </>
             ):(
               <>

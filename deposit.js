@@ -6,9 +6,6 @@ function Deposit(){
   const [deposit, setDeposit] = React.useState('');
   const ctx = React.useContext(UserContext);  
 
-console.log(ctx)
-let user = ctx.users[ctx.users.length - 1]
-
   function validate(field, label){
       if (!field) {
         setStatus('Error: ' + label);
@@ -32,11 +29,11 @@ let user = ctx.users[ctx.users.length - 1]
      return true;
   }
 
-  function handleCreate(){
+  function handleDeposit(){
     console.log(deposit);
     if (!validate(deposit, 'deposit')) return;
-    if (!valiDeposit(deposit, 'deposit')) return;
-    ctx.users[ctx.users.length - 1].push({balance:deposit});
+    if (!valiDeposit(deposit)) return;
+    ctx.users[0].balance = ctx.users[0].balance + parseInt(deposit)
     setShow(false);
   }    
 
@@ -52,12 +49,12 @@ let user = ctx.users[ctx.users.length - 1]
       status={status}
       body={show ? (  
               <>
-              Current Balance {user.balance}<br/>
+              Current Balance {ctx.users[0].balance}<br/>
               
               Amount to deposit<br/>
               <input type="text" className="form-control" id="deposit" placeholder="Enter amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/><br/>
               
-              <button type="submit" className="btn btn-light" onClick={handleCreate}>Submit Deposit</button>
+              <button type="submit" className="btn btn-light" onClick={handleDeposit}>Submit Deposit</button>
               </>
             ):(
               <>
