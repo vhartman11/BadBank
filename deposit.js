@@ -6,16 +6,7 @@ function Deposit(){
   const [deposit, setDeposit] = React.useState('');
   const ctx = React.useContext(UserContext);  
 
-  function validate(field, label){
-      if (!field) {
-        setStatus('Error: ' + label);
-        setTimeout(() => setStatus(''),3000);
-        return false;
-      }
-      return true;
-  }
-
-  function valiDeposit(deposit) {
+  function validate(deposit) {
      if (isNaN(parseFloat(deposit))) {
       setStatus('Error: not a number');
       setTimeout(() => setStatus(''),3000);
@@ -30,9 +21,7 @@ function Deposit(){
   }
 
   function handleDeposit(){
-    console.log(deposit);
-    if (!validate(deposit, 'deposit')) return;
-    if (!valiDeposit(deposit)) return;
+    if (!validate(deposit)) return;
     ctx.users[0].balance = ctx.users[0].balance + parseInt(deposit)
     setShow(false);
   }    
@@ -54,7 +43,7 @@ function Deposit(){
               Amount to deposit<br/>
               <input type="text" className="form-control" id="deposit" placeholder="Enter amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/><br/>
               
-              <button type="submit" className="btn btn-light" onClick={handleDeposit}>Submit Deposit</button>
+              <button type="submit" className="btn btn-light" disabled={deposit.length > 0 ? false : true} onClick={handleDeposit}>Submit Deposit</button>
               </>
             ):(
               <>
