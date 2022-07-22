@@ -4,7 +4,7 @@ import BankImage  from './bank.png';
 
 export function Home() {
   return (
-    <Card style={{ width: '20rem' }}>
+    <Card style={{ width: '30rem' }}>
       <Card.Img variant="top" src={BankImage} />
       <Card.Body>
         <Card.Title>Bad Bank by Vince Hartman</Card.Title>

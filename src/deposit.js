@@ -35,7 +35,7 @@ export function Deposit() {
   };
 
   return (
-    <Card style={{ width: '20rem' }} bg='success' border='success' text="dark">
+    <Card style={{ width: '30rem' }} bg='success' border='success' text="dark">
       <Card.Header as="h5">Make A Deposit</Card.Header>
       {show ? <Card.Body>
         <Card.Text>Current Balance {ctx.users[0].balance}</Card.Text>
@@ -43,7 +43,7 @@ export function Deposit() {
         <input type="text" className="form-control" id="deposit" placeholder="Enter amount" value={deposit} onChange={e => setDeposit(e.currentTarget.value)} />
         <br></br>
         <Button type="submit" className="btn btn-light" disabled={deposit.length > 0 ? false : true} onClick={handleDeposit}>Submit Deposit</Button>
-        <Card.Text>{status ? {status}: '' }</Card.Text>
+        {status}
       </Card.Body>
       : 
       <Card.Body>

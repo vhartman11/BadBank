@@ -11,7 +11,7 @@ export function AllData() {
       ctx.users.map((user,i) => {
       return (
         <div key={i}>
-        <Card style={{ width: '20rem' }} border='danger' text="dark">
+        <Card style={{ width: '30rem' }} border='danger' text="dark">
           <ListGroup variant="flush">
             <ListGroup.Item>Name: {user.name}</ListGroup.Item>
             <ListGroup.Item>Email: {user.email}</ListGroup.Item>

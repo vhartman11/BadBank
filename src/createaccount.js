@@ -47,7 +47,7 @@ export function CreateAccount() {
   };
 
   return (
-    <Card style={{ width: '20rem' }} bg='info' border='primary' text="dark">
+    <Card style={{ width: '30rem' }} bg='info' border='primary' text="dark">
       {show ? <Card.Body>
         <Card.Header as="h5">Create Account</Card.Header>
         <Card.Text>Name</Card.Text>
@@ -60,7 +60,7 @@ export function CreateAccount() {
           <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/>
           <br></br>
           <Button type="submit" className="btn btn-light" disabled={(!name.length > 0) ? true : (!email.length > 0) ? true : (password.length > 0) ? false : true} onClick={handleCreate} >Create Account</Button>
-          <Card.Text>{status ? {status}: '' }</Card.Text>
+          {status}
       </Card.Body>
       :
       <Card.Body>

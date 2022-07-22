@@ -40,7 +40,7 @@ export function Withdraw() {
   };
 
   return (
-    <Card style={{ width: '20rem' }} bg='danger' border='danger' text="dark">
+    <Card style={{ width: '30rem' }} bg='danger' border='danger' text="dark">
       <Card.Header as="h5">Request A Withdraw</Card.Header>
       {show ? <Card.Body>
         <Card.Text>Current Balance {ctx.users[0].balance}</Card.Text>
@@ -48,7 +48,7 @@ export function Withdraw() {
           <input type="text" className="form-control" id="withdraw" placeholder="Enter amount" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)} />
           <br></br>
           <Button type="submit" className="btn btn-light" disabled={withdraw.length > 0 ? false : true} onClick={handleWithdraw}>Request withdraw</Button>
-          <Card.Text>{status ? {status}: '' }</Card.Text>
+          {status}
         </Card.Body> 
         : 
         <Card.Body>
