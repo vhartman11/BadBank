@@ -4,7 +4,7 @@ import ListGroup  from 'react-bootstrap/ListGroup';
 import { UserContext } from './context';
 
 export function AllData() {
-  const ctx = React.useContext(UserContext);  
+  const ctx = React.useContext(UserContext)
 
   return (
     <div>{
@@ -21,9 +21,9 @@ export function AllData() {
         </Card>
         <br></br>
         </div>
-      );
+      )
      })
-    };
+    }
     </div>
   ); 
 };

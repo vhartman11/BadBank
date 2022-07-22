@@ -4,39 +4,39 @@ import Card   from 'react-bootstrap/Card';
 import { UserContext } from './context';
 
 export function Withdraw() {
-  const [show, setShow]             = React.useState(true);
-  const [status, setStatus]         = React.useState('');
-  const [withdraw, setWithdraw]     = React.useState('');
-  const ctx = React.useContext(UserContext);  
+  const [show, setShow]             = React.useState(true)
+  const [status, setStatus]         = React.useState('')
+  const [withdraw, setWithdraw]     = React.useState('')
+  const ctx = React.useContext(UserContext)
 
   function validate(withdraw) {
     if (isNaN(parseFloat(withdraw))) {
-      setStatus('Error: not a number');
-      setTimeout(() => setStatus(''),3000);
-    return false;
+      setStatus('Error: not a number')
+      setTimeout(() => setStatus(''),3000)
+    return false
     }
     if (withdraw < 0) {
-      setStatus('Error: deposit is less then 0');
-      setTimeout(() => setStatus(''),3000);
-    return false;
+      setStatus('Error: deposit is less then 0')
+      setTimeout(() => setStatus(''),3000)
+    return false
     }
     if (withdraw > ctx.users[0].balance) {
-      setStatus('Error: not enough in account');
-      setTimeout(() => setStatus(''),3000);
-    return false;
+      setStatus('Error: not enough in account')
+      setTimeout(() => setStatus(''),3000)
+    return false
     }
-    return true;
+    return true
   };
 
   function handleWithdraw() {
-    if (!validate(withdraw)) return;
-    ctx.users[0].balance = ctx.users[0].balance - parseInt(withdraw);
-    setShow(false);
+    if (!validate(withdraw)) return
+    ctx.users[0].balance = ctx.users[0].balance - parseInt(withdraw)
+    setShow(false)
   };    
 
   function clearForm() {
-    setWithdraw('');
-    setShow(true);
+    setWithdraw('')
+    setShow(true)
   };
 
   return (
@@ -55,7 +55,7 @@ export function Withdraw() {
           <Card.Text>Withdraw successful!</Card.Text>
           <Button type="submit" className="btn btn-light" onClick={clearForm}>Make another withdraw?</Button>
         </Card.Body>
-        };
+        }
     </Card>
   );
 };

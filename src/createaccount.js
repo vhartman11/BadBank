@@ -13,37 +13,37 @@ export function CreateAccount() {
 
   function validate(field, label) {
     if (!field) {
-      setStatus('Error: ' + label);
-      setTimeout(() => setStatus(''),3000);
-      return false;
+      setStatus('Error: ' + label)
+      setTimeout(() => setStatus(''),3000)
+      return false
     }
-      return true;
+      return true
   };
 
   function valiPass(password) {
     if (password.length < 8) {
-      setStatus('Error: password to short');
-      setTimeout(() => setStatus(''),3000);
-      return false;
+      setStatus('Error: password to short')
+      setTimeout(() => setStatus(''),3000)
+      return false
     }
-      return true;
+      return true
   };
 
   function handleCreate() {
-    console.log(name,email,password);
-    if (!validate(name,     'name'))     return;
-    if (!validate(email,    'email'))    return;
-    if (!validate(password, 'password')) return;
-    if (!valiPass(password, 'password')) return;
-    ctx.users.push({name,email,password,balance:100});
-    setShow(false);
+    console.log(name,email,password)
+    if (!validate(name,     'name'))     return
+    if (!validate(email,    'email'))    return
+    if (!validate(password, 'password')) return
+    if (!valiPass(password, 'password')) return
+    ctx.users.push({name,email,password,balance:100})
+    setShow(false)
   };    
 
   function clearForm() {
-    setName('');
-    setEmail('');
-    setPassword('');
-    setShow(true);
+    setName('')
+    setEmail('')
+    setPassword('')
+    setShow(true)
   };
 
   return (
@@ -66,7 +66,8 @@ export function CreateAccount() {
       <Card.Body>
         <Card.Text>Account successfully created!</Card.Text> 
           <Button type="submit" className="btn btn-light" onClick={clearForm}>Add another account?</Button>  
-      </Card.Body>}
+      </Card.Body>
+      }
     </Card>
   );
 }; 
