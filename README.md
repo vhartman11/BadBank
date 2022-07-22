@@ -1,3 +1,22 @@
+Bad Bank
+Project Title: Bad Bank
+
+Dscription of Project: This project is named bad bank beacuse it display's the user information on the front end.  In this project, you are able to create an account and make deposits and withdraws.
+
+How to Run:
+
+Fork and clone
+Download a zip file
+
+Future Improvements: 
+Add back end
+track users
+improve my css
+
+License Information: MIT License
+
+Author: Vince Hartman currently enrolled at MIT in Full Stack Development with MERN
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
