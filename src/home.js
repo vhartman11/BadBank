@@ -1,6 +1,6 @@
-import React from 'react' 
-import Card from 'react-bootstrap/Card';
-import BankImage from './bank.png'
+import React      from 'react'; 
+import Card       from 'react-bootstrap/Card';
+import BankImage  from './bank.png';
 
 export function Home() {
   return (
@@ -15,4 +15,4 @@ export function Home() {
       </Card.Body>
     </Card>
   );  
-}
+};

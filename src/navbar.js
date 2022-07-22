@@ -1,7 +1,6 @@
 import React from 'react' 
 
-export function NavBar(){
-
+export function NavBar() {
   return(
     <div>
     <>
@@ -30,4 +29,4 @@ export function NavBar(){
     </>
     </div>
   );
-}
+};
